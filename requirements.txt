@@ -1,0 +1,2 @@
+# Week 1 dataset preparation dependencies
+Pillow>=10.0

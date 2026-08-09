@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.DS_Store
+
+# Keep data and generated model outputs local. Empty folders stay in the repo
+# so new contributors know where to put their files.
+data/raw/**
+!data/raw/.gitkeep
+!data/raw/marine_life/
+!data/raw/marine_life/.gitkeep
+!data/raw/plastic/
+!data/raw/plastic/.gitkeep
+
+data/processed/**
+!data/processed/.gitkeep
+
+# Training artifacts will be added in later weeks.
+models/
+outputs/
+*.h5
+*.pth
+
