@@ -17,9 +17,10 @@ data/raw/**
 data/processed/**
 !data/processed/.gitkeep
 
-# Training artifacts will be added in later weeks.
+# Trained model artifacts are generated locally, not stored in Git.
 models/
 outputs/
 *.h5
 *.pth
+*.keras
 

@@ -1,2 +1,7 @@
 # Week 1 dataset preparation dependencies
 Pillow>=10.0
+
+# Week 2 model dependencies
+tensorflow>=2.16
+numpy>=1.26
+pytest>=8.0
