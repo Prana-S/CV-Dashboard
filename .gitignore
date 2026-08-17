@@ -22,4 +22,5 @@ models/
 outputs/
 *.h5
 *.pth
+*.keras
 

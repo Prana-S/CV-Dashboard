@@ -1,2 +1,6 @@
 # Week 1 dataset preparation dependencies
 Pillow>=10.0
+
+# Week 2 model architecture and training dependencies
+tensorflow-cpu>=2.16,<2.20
+numpy>=1.26
