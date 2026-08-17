@@ -17,10 +17,14 @@ data/raw/**
 data/processed/**
 !data/processed/.gitkeep
 
-# Trained model artifacts are generated locally, not stored in Git.
+# Trained model artifacts are generated locally and stay out of Git, with one
+# deliberate exception: the best checkpoint is committed as the Week 2 model
+# deliverable (about 9 MB), so it can be downloaded without retraining.
 models/
-outputs/
+outputs/*
 *.h5
 *.pth
 *.keras
+# This negation must stay last so it overrides the *.keras rule above.
+!outputs/best_model.keras
 

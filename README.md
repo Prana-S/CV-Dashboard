@@ -80,16 +80,50 @@ python3 src/predict.py --model outputs/best_model.keras --image path/to/image.jp
 
 - `src/` holds the **model source code** and is tracked in Git.
 - `outputs/` holds the **trained model files** that training generates on your
-  own computer. It is listed in `.gitignore`, together with `*.keras`, so the
-  binaries are never pushed to GitHub unless someone explicitly asks for them.
+  own computer.
 
 After the training command finishes you will find, relative to the repository root:
 
 ```text
-outputs/best_model.keras       # best validation AUC checkpoint
-outputs/final_model.keras      # model after the last epoch
-outputs/training_history.json  # per-epoch loss and metrics
+outputs/best_model.keras       # best validation AUC checkpoint (committed)
+outputs/final_model.keras      # model after the last epoch (ignored)
+outputs/training_history.json  # per-epoch loss and metrics (ignored)
 ```
+
+`outputs/` is ignored by Git with one deliberate exception:
+`outputs/best_model.keras` is allowed through, so the finished Week 2 model can
+be shared in the repository. Everything else in `outputs/` stays local.
+
+### Train on your own data and commit the model
+
+The image dataset itself is **not** stored in GitHub, so training has to run on
+the machine that holds `data/raw/` and `data/processed/`. From the repository root:
+
+```bash
+# 1. Build the crops and the training-ready dataset (Week 1 commands above)
+python3 src/build_seaclear_binary_dataset.py --per-class 500 --overwrite
+python3 src/prepare_dataset.py \
+  --marine-source data/raw/marine_life \
+  --plastic-source data/raw/plastic \
+  --output-dir data/processed \
+  --overwrite
+
+# 2. Train. This needs internet access the first time so Keras can download
+#    the pretrained MobileNetV2 ImageNet weights.
+python3 src/train_model.py \
+  --data-dir data/processed \
+  --output-dir outputs \
+  --epochs 10 \
+  --batch-size 32
+
+# 3. Commit the trained model (about 9 MB).
+git add outputs/best_model.keras
+git commit -m "Add trained Week 2 model"
+git push
+```
+
+Only `outputs/best_model.keras` will be staged; `git add outputs/` ignores the
+other generated files automatically.
 
 ### Run the tests
 
