@@ -21,5 +21,6 @@ data/processed/**
 models/
 outputs/
 *.h5
+*.keras
 *.pth
 

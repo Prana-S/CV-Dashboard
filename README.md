@@ -27,3 +27,16 @@ python3 src/prepare_dataset.py \
 ```
 
 The scripts keep training and validation images separate, resize images to 224 x 224, create training-only augmentations, and apply `pixel / 255.0` normalization during model loading.
+
+## Week 2: check the model
+
+Install the project dependencies in a local virtual environment, then run the architecture check:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python src/check_model.py \
+  --save-model models/plastic_pulse_week2_architecture.keras
+```
+
+This loads the Week 1 images, builds the frozen MobileNetV2 transfer-learning model, and runs one real batch through it without training.
