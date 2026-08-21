@@ -17,6 +17,9 @@ data/raw/**
 data/processed/**
 !data/processed/.gitkeep
 
+data/test/**
+!data/test/.gitkeep
+
 # Training artifacts will be added in later weeks.
 models/
 outputs/

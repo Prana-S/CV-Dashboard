@@ -40,3 +40,18 @@ python3 -m venv .venv
 ```
 
 This loads the Week 1 images, builds the frozen MobileNetV2 transfer-learning model, and runs one real batch through it without training.
+
+## Week 3: train and evaluate
+
+Create an untouched test set, train an experiment, then evaluate the saved model:
+
+```bash
+.venv/bin/python src/build_test_set.py --per-class 100 --overwrite
+.venv/bin/python src/train.py --output-dir outputs/week3/experiment --overwrite
+.venv/bin/python src/evaluate_model.py \
+  --model-path outputs/week3/experiment/best_model.keras \
+  --output-dir outputs/week3/experiment/evaluation \
+  --overwrite
+```
+
+Training graphs, saved models, comparison files, and test images stay local in ignored folders.
