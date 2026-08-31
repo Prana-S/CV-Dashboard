@@ -11,7 +11,7 @@ from model import build_model
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Check the Plastic-Pulse data loader and model architecture.")
+    parser = argparse.ArgumentParser(description="Check the Marine Debris Classifier data loader and model architecture.")
     parser.add_argument("--data-dir", type=Path, default=Path("data/processed"))
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument(

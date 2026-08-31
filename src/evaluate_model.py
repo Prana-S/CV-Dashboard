@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Evaluate a saved Plastic-Pulse model on the untouched test images."""
+"""Evaluate a saved marine debris model on the untouched test images."""
 
 from __future__ import annotations
 

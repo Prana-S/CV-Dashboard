@@ -1,4 +1,4 @@
-"""MobileNetV2 transfer-learning model for Plastic-Pulse."""
+"""MobileNetV2 transfer-learning model for Marine Debris Classifier."""
 
 from __future__ import annotations
 

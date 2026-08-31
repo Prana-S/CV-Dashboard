@@ -31,7 +31,7 @@ class LearningRateHistory(tf.keras.callbacks.Callback):
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Train the Plastic-Pulse binary classifier.")
+    parser = argparse.ArgumentParser(description="Train the marine debris binary classifier.")
     parser.add_argument("--data-dir", type=Path, default=Path("data/processed"))
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--epochs", type=int, default=8)
@@ -80,7 +80,7 @@ def plot_learning_curves(history: dict[str, list[float]], destination: Path) -> 
     axes[1].grid(alpha=0.25)
     axes[1].legend()
 
-    figure.suptitle("Plastic-Pulse Training History")
+    figure.suptitle("Marine Debris Classifier Training History")
     figure.tight_layout()
     figure.savefig(destination, dpi=160)
     plt.close(figure)

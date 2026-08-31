@@ -1,4 +1,4 @@
-"""Load the prepared Plastic-Pulse image folders for training and evaluation."""
+"""Load the prepared marine debris image folders for training and evaluation."""
 
 from __future__ import annotations
 
