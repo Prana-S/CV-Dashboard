@@ -1,4 +1,4 @@
-# Plastic-Pulse Ocean Tracker
+# Marine Debris Image Classifier
 
 A student computer-vision project that classifies an image as **marine life** or **plastic debris**.
 
@@ -55,3 +55,34 @@ Create an untouched test set, train an experiment, then evaluate the saved model
 ```
 
 Training graphs, saved models, comparison files, and test images stay local in ignored folders.
+
+## Week 4: local live test
+
+Open the desktop dashboard when you want to choose an image from your computer:
+
+```bash
+.venv/bin/python src/demo_dashboard.py
+```
+
+Click **Choose image**, select an underwater photo, and then click **Run classification**. The dashboard keeps the model loaded so you can test several images without restarting it.
+
+Run the trained model on one image or a small folder of images:
+
+```bash
+.venv/bin/python src/live_dashboard.py \
+  --image path/to/new-image.jpg \
+  --output-dir outputs/week4/single_test
+```
+
+For a small batch, use:
+
+```bash
+.venv/bin/python src/live_dashboard.py \
+  --input-dir data/test \
+  --limit 8 \
+  --output-dir outputs/week4/batch_test
+```
+
+Add `--display` to show the annotated image in an OpenCV window. Use a new output folder for each run, or add `--overwrite` when you intentionally want to replace an earlier result.
+
+The dashboard uses OpenCV to draw a rectangle and write the predicted label with confidence. The model is an image classifier, so the rectangle marks the image region being analysed rather than a true detected object box.
